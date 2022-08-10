@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import axios from 'axios';
 // import Loader from './Loader/Loader'
 
-const KEY = "9c85c2414d8624d6e18c2da3e97d3f7e";
+// const KEY = "9c85c2414d8624d6e18c2da3e97d3f7e";
 export const App = () => {
   // const [movies, setMovies] = useState([]);
 
