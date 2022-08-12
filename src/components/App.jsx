@@ -7,7 +7,11 @@ export const App = () => {
   // const [movies, setMovies] = useState([]);
 
   getTrendingMovies();
-
+  getMovieDetails();
+  getMoviesBySearchQuery();
+  getMovieCredits()
+  getMovieReviews()
+  
   return (
     <div>
     
