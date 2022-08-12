@@ -9,15 +9,6 @@ const getTrendingMovies = async () => {
   console.log(result.data.results);
   return result.data.results;
 };
-// /movie/{movie_id}
-const getMovieDetails = async movieId => {
-  if (!movieId) {
-    return null;
-  }
-  const result = await axios.get(`${URL}/movie/${movieId}?api_key=${KEY}`);
-  console.log(result.data);
-  return result.data;
-};
 
 // https://api.themoviedb.org/3/search/movie?api_key=9c85c2414d8624d6e18c2da3e97d3f7e&query=cars
 const getMoviesBySearchQuery = async searchQuery => {
@@ -31,4 +22,41 @@ const getMoviesBySearchQuery = async searchQuery => {
   return result;
 };
 
-export { getTrendingMovies, getMovieDetails, getMoviesBySearchQuery };
+const getMovieDetails = async movieId => {
+  if (!movieId) {
+    return null;
+  }
+  const result = await axios.get(`${URL}/movie/${movieId}?api_key=${KEY}`);
+  console.log(result.data);
+  return result.data;
+};
+
+const getMovieCredits = async movieId => {
+  if (!movieId) {
+    return null;
+  }
+  const result = await axios.get(
+    `${URL}/movie/${movieId}/credits?api_key=${KEY}`
+  );
+  console.log(result.data.cast);
+  return result.data.cast;
+};
+
+const getMovieReviews = async movieId => {
+  if (!movieId) {
+    return null;
+  }
+  const result = await axios.get(
+    `${URL}/movie/${movieId}/reviews?api_key=${KEY}`
+  );
+  console.log(result.data.results);
+  return result.data.results;
+};
+
+export {
+  getTrendingMovies,
+  getMovieDetails,
+  getMoviesBySearchQuery,
+  getMovieCredits,
+  getMovieReviews,
+};
