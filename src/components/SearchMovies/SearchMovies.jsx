@@ -46,7 +46,7 @@ const SearchMovies = () => {
                 {movies.map((movie) => {
                     return (
                         <li key={movie.id} className={css.trendingMovies__item}>
-                            <Link to={`movies/${movie.id}`} className={css.trendingMovies__name}>{movie.title}</Link>
+                            <Link to={`${movie.id}`} className={css.trendingMovies__name}>{movie.title}</Link>
                         </li>
                     )
                 })}

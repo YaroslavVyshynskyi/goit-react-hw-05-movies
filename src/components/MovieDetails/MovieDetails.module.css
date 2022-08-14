@@ -2,9 +2,15 @@
     padding-top: 10px;
 }
 
+.back__btn {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
 .back__link {
     display: block;
-    margin-bottom: 10px;
 }
 
 .movieDetails__wrap {

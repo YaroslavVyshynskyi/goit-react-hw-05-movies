@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { Link, Outlet } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { getMovieDetails } from 'api';
 import css from "./MovieDetails.module.css"
 
@@ -30,7 +31,10 @@ const MovieDetails = () => {
 
     return (
         <div className={css.movieDetails__container}>
-            <Link to="/" className={css.back__link}>Go back</Link>
+            <button type="button" className={css.back__btn}>
+                <IoIosArrowRoundBack />
+                <Link to="/" className={css.back__link}>Go back</Link>
+            </button>    
             <div className={css.movieDetails__wrap}>
                 <div className={css.movieDetails__poster}>
                     <img src={imgUrl} alt={movie.title} className={css.movie__poster} />
