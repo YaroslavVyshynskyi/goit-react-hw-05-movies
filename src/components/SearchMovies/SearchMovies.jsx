@@ -1,6 +1,6 @@
-import { getMoviesBySearchQuery } from "api";
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getMoviesBySearchQuery } from "api";
 import css from "./SearchMovies.module.css"
 
 const SearchMovies = () => {
