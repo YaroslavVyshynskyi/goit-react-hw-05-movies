@@ -1,6 +1,7 @@
 import { getMoviesBySearchQuery } from "api";
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import css from "./SearchMovies.module.css"
 
 const SearchMovies = () => {
     const [movies, setMovies] = useState([]);
@@ -27,8 +28,8 @@ const SearchMovies = () => {
     };
 
     return (
-        <div className="trending-movies__container">
-            <form className="SearchForm" onSubmit={handleInputSubmit}>
+        <div className={css.trendingMovies__container}>
+            <form className={css.SearchForm} onSubmit={handleInputSubmit}>
                 <input
                     className="SearchForm__input"
                     name="searchMovie"
@@ -37,15 +38,15 @@ const SearchMovies = () => {
                     autoFocus
                     placeholder={searchQuery || "Search movies"}
                 />
-                <button type="submit" className="SearchForm__button">
+                <button type="submit" className={css.searchForm__button}>
                     Search
                 </button>
             </form>
-            <ul className="trending-movies__list">
+            <ul className={css.trendingMovies__list}>
                 {movies.map((movie) => {
                     return (
-                        <li key={movie.id} className="trending-movies__item">
-                            <Link to={`movies/${movie.id}`} className="trending-movies__name">{movie.title}</Link>
+                        <li key={movie.id} className={css.trendingMovies__item}>
+                            <Link to={`movies/${movie.id}`} className={css.trendingMovies__name}>{movie.title}</Link>
                         </li>
                     )
                 })}

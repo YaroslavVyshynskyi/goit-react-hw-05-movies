@@ -1,0 +1,50 @@
+.movieDetails__container {
+    padding-top: 10px;
+}
+
+.back__link {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.movieDetails__wrap {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    box-shadow: 0 5px 8px -5px rgba(0, 0, 0, 0.2);
+}
+
+.movieDetails__poster {
+    margin-right: 20px;
+}
+
+.movie__poster {
+    height: 400px;
+}
+
+
+/*============= AdditionalInfo ============== */
+
+.movieAdditionalInfo__container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 0 5px 8px -5px rgba(0, 0, 0, 0.2);
+}
+
+.movieAdditionalInfo__list {
+    /* padding-left: 0; */
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.movieAdditionalInfo__title {
+    margin: 0;
+}
+
+.movieAdditionalInfo__item {
+    list-style-type: none;
+}
+
+.movieAdditionalInfo__item:not(last-child) {
+    margin-bottom: 5px;
+}

@@ -1,0 +1,26 @@
+.cast__container {
+    margin-top: 30px;
+}
+
+.cast__list {
+    margin: 0;
+}
+
+.cast__item {
+    list-style-type: none;
+}
+
+.actor__image {
+    width: 100px;
+    height: auto;
+}
+
+.castActor__text {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.castCharacter__text{
+    margin-top: 5px;
+    margin-bottom: 35px;
+}
