@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useParams, useNavigate } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { getMovieDetails } from 'api';
 import css from "./MovieDetails.module.css"
@@ -9,6 +8,7 @@ const IMAGE_PLACEHOLDER = "https://cdn.vectorstock.com/i/1000x1000/60/33/film-cl
 
 const MovieDetails = () => {
     const { movieId } = useParams();
+    const navigate = useNavigate();
     const [movie, setMovie] = useState({});
     
     useEffect(() => {
@@ -31,9 +31,9 @@ const MovieDetails = () => {
 
     return (
         <div className={css.movieDetails__container}>
-            <button type="button" className={css.back__btn}>
+            <button type="button" className={css.back__btn} onClick={() => navigate(-1)}>
                 <IoIosArrowRoundBack />
-                <Link to="/" className={css.back__link}>Go back</Link>
+                <span className={css.btn__text}>Go back</span>
             </button>    
             <div className={css.movieDetails__wrap}>
                 <div className={css.movieDetails__poster}>
