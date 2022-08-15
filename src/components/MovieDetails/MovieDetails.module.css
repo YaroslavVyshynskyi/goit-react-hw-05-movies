@@ -10,8 +10,7 @@
 } */
 
 .goBack__link {
-    display: inline-block;
-    align-items: center;
+    display: block;
     margin-bottom: 10px;
 }
 
