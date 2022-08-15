@@ -11,6 +11,7 @@
 
 .goBack__link {
     display: inline-block;
+    align-items: center;
     margin-bottom: 10px;
 }
 

@@ -8,7 +8,7 @@ const IMAGE_PLACEHOLDER = "https://cdn.vectorstock.com/i/1000x1000/60/33/film-cl
 
 const MovieDetails = () => {
     const { movieId } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [movie, setMovie] = useState({});
     
     useEffect(() => {
