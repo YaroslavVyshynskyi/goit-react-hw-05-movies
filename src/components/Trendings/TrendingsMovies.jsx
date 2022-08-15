@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import { getTrendingMovies } from "api";
 import css from "./TrendingsMovies.module.css"
 
 const TrendingsMovies = () => { 
     const [movies, setMovies] = useState([]);
-    
+    const location = useLocation();
+
     useEffect(() => {
         const fetchMovies = async () => { 
             const result = await getTrendingMovies();
@@ -21,7 +22,7 @@ const TrendingsMovies = () => {
                 {movies.map((movie) => {
                     return (
                         <li key={movie.id} className={css.trendingMovies__item}>
-                            <Link to={`movies/${movie.id}`} className={css.trendingMovies__name}>{movie.title}</Link>
+                            <Link to={`movies/${movie.id}`} className={css.trendingMovies__name} state={{from: `${location.pathname}`}}>{movie.title}</Link>
                         </li>
                     )
                 })}

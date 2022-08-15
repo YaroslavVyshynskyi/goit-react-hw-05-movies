@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { getMoviesBySearchQuery } from "api";
 import css from "./SearchMovies.module.css"
 
@@ -7,6 +7,7 @@ const SearchMovies = () => {
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const searchQuery = searchParams.get("query");
+    const location = useLocation();
     
     useEffect(() => {
         if (!searchQuery) {
@@ -46,7 +47,7 @@ const SearchMovies = () => {
                 {movies.map((movie) => {
                     return (
                         <li key={movie.id} className={css.trendingMovies__item}>
-                            <Link to={`${movie.id}`} className={css.trendingMovies__name}>{movie.title}</Link>
+                            <Link to={`${movie.id}`} className={css.trendingMovies__name} state={{from: `${location.pathname}${location.search}`}}>{movie.title}</Link>
                         </li>
                     )
                 })}
