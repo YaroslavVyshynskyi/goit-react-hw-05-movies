@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, Outlet, useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState, Suspense  } from "react";
+import { Link, Outlet, useParams, useNavigate, useLocation } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { getMovieDetails } from 'api';
 import css from "./MovieDetails.module.css"
@@ -22,6 +22,9 @@ const MovieDetails = () => {
         fetchMovie();
     }, [movieId])
 
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? "/movies";
+
     const releaseYear = new Date(movie.release_date).getFullYear();
     const movieGenres = (movie.genres || []).map(({ name }) => {
         return name;
@@ -31,10 +34,14 @@ const MovieDetails = () => {
 
     return (
         <div className={css.movieDetails__container}>
-            <button type="button" className={css.back__btn} onClick={() => navigate(-1)}>
+            {/* <button type="button" className={css.back__btn} onClick={() => navigate(-1)}>
                 <IoIosArrowRoundBack />
                 <span className={css.btn__text}>Go back</span>
-            </button>    
+            </button>     */}
+            <Link to={backLinkHref} className={css.goBack__link}>
+                <IoIosArrowRoundBack />
+                <span className={css.btn__text}>Go back</span>
+            </Link>
             <div className={css.movieDetails__wrap}>
                 <div className={css.movieDetails__poster}>
                     <img src={imgUrl} alt={movie.title} className={css.movie__poster} />
@@ -59,7 +66,10 @@ const MovieDetails = () => {
                     </li>
                 </ul>
             </div>
-            <Outlet />
+            <Suspense>
+                <Outlet />
+            </Suspense>
+        
         </div>
     )
 };

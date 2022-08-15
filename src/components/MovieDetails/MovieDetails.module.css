@@ -2,21 +2,27 @@
     padding-top: 10px;
 }
 
-.back__btn {
+/* .back__btn {
     display: flex;
     align-items: center;
     padding: 2px;
     margin-bottom: 10px;
+} */
+
+.goBack__link {
+    display: inline-block;
+    margin-bottom: 10px;
 }
+
 
 .back__link {
     display: block;
 }
 
 .movieDetails__wrap {
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
-    padding-bottom: 10px;
     box-shadow: 0 5px 8px -5px rgba(0, 0, 0, 0.2);
 }
 
