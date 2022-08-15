@@ -9,6 +9,8 @@ const IMAGE_PLACEHOLDER = "https://cdn.vectorstock.com/i/1000x1000/60/33/film-cl
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
+    const [backLinkHref, setBackLinkHref] = useState("/movies");
+    const location = useLocation();
     
     useEffect(() => {
         if (!movieId) {
@@ -21,8 +23,12 @@ const MovieDetails = () => {
         fetchMovie();
     }, [movieId])
 
-    const location = useLocation();
-    const backLinkHref = location.state?.from ?? "/movies";
+    useEffect(() => {
+        if (location.state?.from) {
+            return setBackLinkHref(location.state?.from);
+        }
+    }, [location.state?.from])
+
     const releaseYear = new Date(movie.release_date).getFullYear();
     const movieGenres = (movie.genres || []).map(({ name }) => {
         return name;
