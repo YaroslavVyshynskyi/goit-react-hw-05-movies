@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Suspense  } from "react";
 import { Link, Outlet, useParams, useLocation } from "react-router-dom";
-// import { Link, Outlet, useParams, useNavigate, useLocation } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { getMovieDetails } from 'api';
 import css from "./MovieDetails.module.css"
@@ -9,7 +8,6 @@ const IMAGE_PLACEHOLDER = "https://cdn.vectorstock.com/i/1000x1000/60/33/film-cl
 
 const MovieDetails = () => {
     const { movieId } = useParams();
-    // const navigate = useNavigate();
     const [movie, setMovie] = useState({});
     
     useEffect(() => {
@@ -25,7 +23,6 @@ const MovieDetails = () => {
 
     const location = useLocation();
     const backLinkHref = location.state?.from ?? "/movies";
-
     const releaseYear = new Date(movie.release_date).getFullYear();
     const movieGenres = (movie.genres || []).map(({ name }) => {
         return name;
@@ -35,10 +32,6 @@ const MovieDetails = () => {
 
     return (
         <div className={css.movieDetails__container}>
-            {/* <button type="button" className={css.back__btn} onClick={() => navigate(-1)}>
-                <IoIosArrowRoundBack />
-                <span className={css.btn__text}>Go back</span>
-            </button>     */}
             <Link to={backLinkHref} className={css.goBack__link}>
                 <IoIosArrowRoundBack />
                 <span className={css.btn__text}>Go back</span>
