@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense  } from "react";
-import { Link, Outlet, useParams, useNavigate, useLocation } from "react-router-dom";
+import { Link, Outlet, useParams, useLocation } from "react-router-dom";
+// import { Link, Outlet, useParams, useNavigate, useLocation } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { getMovieDetails } from 'api';
 import css from "./MovieDetails.module.css"
